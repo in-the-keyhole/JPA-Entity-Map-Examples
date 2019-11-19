@@ -6,4 +6,4 @@ This repository was built to serve as a working example of a way to use JPA to p
 H2: to use the H2 config, please checkout the branch: config/h2
 
 POSTGRES:
-Currently setup for a proper, installed, postgres database. scripst are in place to destroy, create, and populate data.
+Currently setup for a proper, installed, postgres database. scripts are in place to destroy, create, and populate data.
