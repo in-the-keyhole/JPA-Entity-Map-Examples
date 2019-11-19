@@ -19,6 +19,17 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<!-- 
+	if you're using a non-oracle JVM, and you want to remove the error: 
+	
+	"Build path specifies execution environment JavaSE-1.X. There are no JREs installed in the workspace that are strictly compatible with this environment."
+	
+	try this:
+	1) remove the java.version property above
+	2) project properties > Java Build Path > Libraries > Add library... > JRE System Library > Alternate JRE - (choose your installed jdk)
+	3) perform a maven project update (alt+f5)
+	 -->
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
