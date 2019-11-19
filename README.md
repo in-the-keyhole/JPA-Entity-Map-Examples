@@ -3,12 +3,7 @@ JPA-Entity-Map-Examples
 
 This repository was built to serve as a working example of a way to use JPA to populate a map of entities using 1 table and 1 view (view serves onlt to distinctly select the categorizing portions of the tables primary composite keys.)
 
-H2: 
-currently setup to use a static/unchanging file based h2 database. 
-optional - 
-   copy/replace the ./sql/h2/application.properties to the src/test/resources if youre switching from the postgres config
-   if youre using ios/linux - be sure to update the h2 datasource url in the application.properties
+H2: to use the H2 config, please checkout the branch: config/h2
 
 POSTGRES:
-either try the ./sql/postgres/POSTGRES_BAK.sql OR setup the tables manually and then execute the ./sql/postgres/schema.sql & ./sql/postgres/data.sql
-also copy/replace the ./sql/postgres/application.properties to the src/test/resources
+Currently setup for a proper, installed, postgres database. scripst are in place to destroy, create, and populate data.

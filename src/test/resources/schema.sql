@@ -1,18 +1,26 @@
-drop VIEW IF EXISTS template_categories;
+SET default_tablespace = '';
+SET default_table_access_method = heap;
 
-drop TABLE IF EXISTS template_entry;
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
 
-CREATE TABLE template_entry 
-(
-	id          INT             NOT NULL,
-	org_id      INT             NOT NULL,
-	template_id INT             NOT NULL,
-   	key         VARCHAR(50)     NOT NULL, 
-    value       VARCHAR(255)    NULL
+CREATE TABLE public.key_value (
+    id bigint NOT NULL,
+    category_id bigint NOT NULL,
+    sub_category_id bigint NOT NULL,
+    key character varying(255) NOT NULL,
+    value text
 );
 
- CREATE VIEW template_categories AS SELECT DISTINCT org_id,  template_id FROM  template_entry;
- 
- ALTER TABLE template_entry ADD PRIMARY KEY (id,org_id, template_id);
+ALTER TABLE public.key_value OWNER TO postgres;
 
- 
+CREATE VIEW public.key_value_categories AS
+ SELECT DISTINCT key_value.category_id,
+    key_value.sub_category_id
+   FROM public.key_value;
+
+ALTER TABLE public.key_value_categories OWNER TO postgres;
+
+	 
+ALTER TABLE ONLY public.key_value
+    ADD CONSTRAINT KEY_VALUE_pkey PRIMARY KEY (id);
